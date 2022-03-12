@@ -37,5 +37,5 @@ class AdditionalCommentModel {
         messageAttrName: message,
         insertDateAttrName: insertDate.toString(),
         updateDateAttrName: updateDate.toString(),
-      }
+      };
 }
