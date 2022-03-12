@@ -30,8 +30,7 @@ class AdditionalCommentModel {
         updateDate: jsonData[updateDateAttrName],
       );
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         idAttrName: id,
         sampleReviewIdAttrName: sampleReview.id,
         messageAttrName: message,

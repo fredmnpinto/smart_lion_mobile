@@ -3,7 +3,7 @@ import 'package:smart_lion_mobile/app/data/models/sample.dart';
 
 class SampleReviewModel {
   final int? id;
-  final Sample sample;
+  final SampleModel sample;
   final ReviewStateModel state;
   final bool isNew;
 

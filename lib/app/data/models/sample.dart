@@ -1,4 +1,4 @@
-class Sample {
+class SampleModel {
   final int? id;
   final double viscosity;
   final double temperature;
@@ -11,7 +11,7 @@ class Sample {
   static const densityAttrName = "density";
   static const turbidityAttrName = "turbidity";
 
-  Sample({
+  SampleModel({
     this.id,
     required this.viscosity,
     required this.temperature,
@@ -19,7 +19,7 @@ class Sample {
     required this.density,
   });
 
-  factory Sample.fromJson(Map<String, dynamic> jsonData) => Sample(
+  factory SampleModel.fromJson(Map<String, dynamic> jsonData) => SampleModel(
         id: jsonData[idAttrName],
         viscosity: jsonData[viscosityAttrName],
         temperature: jsonData[temperatureAttrName],
