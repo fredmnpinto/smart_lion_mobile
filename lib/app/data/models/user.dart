@@ -1,6 +1,4 @@
-import 'dart:io';
-
-class UserModel {
+class UserModel{
   final int id;
   final String username;
   final String firstName;
@@ -26,12 +24,10 @@ class UserModel {
         lastName: jsonData[lastNameAttrName],
       );
 
-  Map<String, dynamic> toJson() {
-    return {
+  Map<String, dynamic> toJson() => {
       idAttrName: id,
       usernameAttrName: username,
       firstNameAttrName: firstName,
       lastNameAttrName: lastName,
     };
-  }
 }
