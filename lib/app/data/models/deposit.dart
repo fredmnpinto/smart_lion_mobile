@@ -1,5 +1,8 @@
+import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/data/models/bottle.dart';
 import 'package:smart_lion_mobile/app/data/models/oil_bin.dart';
+import 'package:smart_lion_mobile/app/data/providers/bottle.dart';
+import 'package:smart_lion_mobile/app/data/providers/oil_bin.dart';
 
 class DepositModel {
   final int? id;
@@ -22,16 +25,18 @@ class DepositModel {
     required this.updateDate,
   });
 
-  factory DepositModel.fromJson(Map<String, dynamic> jsonData) => DepositModel(
-        bottle: jsonData[bottleIdAttrName], // TODO: Implement
-        oilBin: jsonData[oilBinIdAttrName],    // TODO: Implement
-        insertDate: jsonData[insertDateAttrName],
-        updateDate: jsonData[updateDateAttrName],
+  static fromJson(Map<String, dynamic> jsonData) async => DepositModel(
+        bottle: (await Get.find<BottleProvider>()
+            .getId(jsonData[bottleIdAttrName]))!,
+        oilBin: (await Get.find<OilBinProvider>()
+            .getId(jsonData[oilBinIdAttrName]))!,
+        insertDate: DateTime.parse(jsonData[insertDateAttrName].toString()),
+        updateDate: DateTime.parse(jsonData[updateDateAttrName].toString()),
       );
-  
-  Map<String, dynamic> toJson() =>
-      {
+
+  Map<String, dynamic> toJson() => {
         idAttrName: id,
+        bottleIdAttrName: bottle.id,
         oilBinIdAttrName: oilBin.id,
         insertDateAttrName: insertDate.toString(),
         updateDateAttrName: updateDate.toString(),

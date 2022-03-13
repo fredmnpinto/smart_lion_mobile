@@ -1,4 +1,6 @@
 import 'package:smart_lion_mobile/app/data/models/sample_review.dart';
+import 'package:smart_lion_mobile/app/data/providers/sample_review.dart';
+import 'package:get/get.dart';
 
 class AdditionalCommentModel {
   final int? id;
@@ -21,10 +23,10 @@ class AdditionalCommentModel {
     required this.updateDate,
   });
 
-  factory AdditionalCommentModel.fromJson(Map<String, dynamic> jsonData) =>
+  static Future<AdditionalCommentModel> fromJson(Map<String, dynamic> jsonData) async =>
       AdditionalCommentModel(
         id: jsonData[idAttrName]!,
-        sampleReview: jsonData[sampleReviewIdAttrName],
+        sampleReview: (await Get.find<SampleReviewProvider>().getId(jsonData[sampleReviewIdAttrName]))!,
         message: jsonData[messageAttrName],
         insertDate: jsonData[insertDateAttrName],
         updateDate: jsonData[updateDateAttrName],
