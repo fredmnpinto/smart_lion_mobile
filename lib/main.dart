@@ -5,6 +5,8 @@ import 'package:smart_lion_mobile/app/routes/app_pages.dart';
 import 'app/data/modules/home/page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
