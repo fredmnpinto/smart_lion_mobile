@@ -23,10 +23,12 @@ class AdditionalCommentModel {
     required this.updateDate,
   });
 
-  static Future<AdditionalCommentModel> fromJson(Map<String, dynamic> jsonData) async =>
+  static Future<AdditionalCommentModel> fromJson(
+          Map<String, dynamic> jsonData) async =>
       AdditionalCommentModel(
         id: jsonData[idAttrName]!,
-        sampleReview: (await Get.find<SampleReviewProvider>().getId(jsonData[sampleReviewIdAttrName]))!,
+        sampleReview: (await Get.find<SampleReviewProvider>()
+            .getId(jsonData[sampleReviewIdAttrName]))!,
         message: jsonData[messageAttrName],
         insertDate: jsonData[insertDateAttrName],
         updateDate: jsonData[updateDateAttrName],
