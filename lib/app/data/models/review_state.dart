@@ -1,13 +1,13 @@
 class ReviewStateModel {
   final int? id;
-  final String name;
+  final String state;
   final String message;
   final int resultingPoints;
   final DateTime registerDate;
   final DateTime updateDate;
 
   static const idAttrName = "id";
-  static const nameAttrName = "name";
+  static const stateAttrName = "state";
   static const messageAttrName = "message";
   static const resultingPointsAttrName = "resulting_points";
   static const registerDateAttrName = "register_date";
@@ -15,7 +15,7 @@ class ReviewStateModel {
 
   ReviewStateModel({
     this.id,
-    required this.name,
+    required this.state,
     required this.message,
     required this.resultingPoints,
     required this.registerDate,
@@ -25,7 +25,7 @@ class ReviewStateModel {
   factory ReviewStateModel.fromJson(Map<String, dynamic> jsonData) =>
       ReviewStateModel(
         id: jsonData[idAttrName]!,
-        name: jsonData[nameAttrName]!,
+        state: jsonData[stateAttrName]!,
         message: jsonData[messageAttrName]!,
         resultingPoints: jsonData[resultingPointsAttrName],
         registerDate: DateTime.parse(jsonData[registerDateAttrName].toString()),
@@ -34,7 +34,7 @@ class ReviewStateModel {
 
   Map<String, dynamic> toJson() => {
         idAttrName: id,
-        nameAttrName: name,
+        stateAttrName: state,
         messageAttrName: message,
         resultingPointsAttrName: resultingPoints,
         registerDateAttrName: registerDate.toString(),
