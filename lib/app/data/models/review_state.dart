@@ -3,14 +3,14 @@ class ReviewStateModel {
   final String name;
   final String message;
   final int resultingPoints;
-  final DateTime insertDate;
+  final DateTime registerDate;
   final DateTime updateDate;
 
   static const idAttrName = "id";
   static const nameAttrName = "name";
   static const messageAttrName = "message";
   static const resultingPointsAttrName = "resulting_points";
-  static const insertDateAttrName = "insert_date";
+  static const registerDateAttrName = "register_date";
   static const updateDateAttrName = "update_date";
 
   ReviewStateModel({
@@ -18,7 +18,7 @@ class ReviewStateModel {
     required this.name,
     required this.message,
     required this.resultingPoints,
-    required this.insertDate,
+    required this.registerDate,
     required this.updateDate,
   });
 
@@ -28,7 +28,7 @@ class ReviewStateModel {
         name: jsonData[nameAttrName]!,
         message: jsonData[messageAttrName]!,
         resultingPoints: jsonData[resultingPointsAttrName],
-        insertDate: DateTime.parse(jsonData[insertDateAttrName].toString()),
+        registerDate: DateTime.parse(jsonData[registerDateAttrName].toString()),
         updateDate: DateTime.parse(jsonData[updateDateAttrName].toString()),
       );
 
@@ -37,7 +37,7 @@ class ReviewStateModel {
         nameAttrName: name,
         messageAttrName: message,
         resultingPointsAttrName: resultingPoints,
-        insertDateAttrName: insertDate.toString(),
+        registerDateAttrName: registerDate.toString(),
         updateDateAttrName: updateDate.toString(),
       };
 }

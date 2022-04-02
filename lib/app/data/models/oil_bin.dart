@@ -3,30 +3,34 @@ import 'dart:math';
 class OilBinModel {
   final int? id;
   late final _Coordinates coordinates;
-  final DateTime insertDate;
+  final String address;
+  final DateTime registerDate;
   final DateTime updateDate;
 
   static const idAttrName = "id";
   static const coordinateXAttrName = "coordinate_x";
   static const coordinateYAttrName = "coordinate_y";
-  static const insertDateAttrName = "insert_date";
+  static const addressAttrName = "address";
+  static const registerDateAttrName = "register_date";
   static const updateDateAttrName = "update_date";
 
   OilBinModel({
     this.id,
     required double x,
     required double y,
-    required this.insertDate,
+    required this.address,
+    required this.registerDate,
     required this.updateDate,
   }) {
     coordinates = _Coordinates(x: x, y: y);
   }
 
   factory OilBinModel.fromJson(Map<String, dynamic> jsonData) => OilBinModel(
-        id: jsonData[idAttrName]!,
+        id: jsonData[idAttrName],
         x: jsonData[coordinateXAttrName]!,
         y: jsonData[coordinateYAttrName]!,
-        insertDate: DateTime.parse(jsonData[insertDateAttrName].toString()),
+        address: jsonData[addressAttrName],
+        registerDate: DateTime.parse(jsonData[registerDateAttrName].toString()),
         updateDate: DateTime.parse(jsonData[updateDateAttrName].toString()),
       );
 
@@ -34,7 +38,8 @@ class OilBinModel {
         idAttrName: id,
         coordinateXAttrName: coordinates.x,
         coordinateYAttrName: coordinates.y,
-        insertDateAttrName: insertDate.toString(),
+        addressAttrName: address,
+        registerDateAttrName: registerDate.toString(),
         updateDateAttrName: updateDate.toString(),
       };
 }
