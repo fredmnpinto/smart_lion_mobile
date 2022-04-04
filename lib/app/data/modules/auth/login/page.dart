@@ -13,7 +13,7 @@ class LoginPage extends GetView<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: const Text('My Page')),
+      appBar: AppBar(title: const Text('Smartlion - Login')),
       body: Center(
         child: Form(
           key: controller.loginFormKey,

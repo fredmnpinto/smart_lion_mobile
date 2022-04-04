@@ -24,8 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.brown,
-      ),
-      initialRoute: Routes.LOGIN,
+      ),      initialRoute: Routes.LOGIN,
       initialBinding: AuthBinding(),
       getPages: AppPages.pages,
     );

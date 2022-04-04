@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/data/modules/auth/controller.dart';
 import 'package:smart_lion_mobile/app/data/modules/auth/widgets/display_name_input.dart';
@@ -14,13 +13,12 @@ class RegisterPage extends GetView<AuthController> {
     const double separatorHeight = 15;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('My Page')),
+      appBar: AppBar(title: const Text('Smartlion - Registration')),
       body: Center(
         child: Form(
           key: controller.registerFormKey,
           child: Center(
             child: CustomScrollView(
-
               slivers: [
                 SliverFillRemaining(
                   hasScrollBody: false,
@@ -38,13 +36,21 @@ class RegisterPage extends GetView<AuthController> {
                         const SizedBox(
                           height: separatorHeight,
                         ),
-                        EmailInputField(inputController: controller.emailController),
+                        EmailInputField(
+                            inputController: controller.emailController),
                         const SizedBox(height: separatorHeight),
-                        DisplayNameInputField(inputController: controller.displayNameController),
+                        DisplayNameInputField(
+                            inputController: controller.displayNameController),
                         const SizedBox(height: separatorHeight),
                         PasswordInputField(
                             inputController: controller.passwordController),
-                        const Spacer(),
+                        const SizedBox(height: separatorHeight),
+                        PasswordConfirmInputField(
+                            primaryPasswordController:
+                                controller.passwordController),
+                        const SizedBox(
+                          height: 5 * separatorHeight,
+                        ),
                         ElevatedButton(
                           onPressed: controller.register,
                           child: const Text("Register"),

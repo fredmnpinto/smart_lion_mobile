@@ -18,10 +18,11 @@ class AuthController extends GetxController {
     }
 
     try {
-      final userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text);
       onSuccess();
-    } on FirebaseAuthException catch(e) {
+    } on FirebaseAuthException catch (e) {
       Get.snackbar("Error on login", e.message!);
     }
   }
@@ -32,17 +33,19 @@ class AuthController extends GetxController {
     }
 
     try {
-      final userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      await FirebaseAuth.instance.currentUser!
+          .updateDisplayName(displayNameController.text);
       onSuccess();
-
-    } on FirebaseAuthException catch(e) {
+    } on FirebaseAuthException catch (e) {
       Get.snackbar("Error during registration", e.message!);
     }
   }
 
   void onSuccess() {
-    Get.snackbar("Success", "You are logged in, ${FirebaseAuth.instance.currentUser!.displayName}!");
+    Get.snackbar("Success",
+        "You are logged in, ${FirebaseAuth.instance.currentUser!.displayName}!");
     Get.offAndToNamed(Routes.HOME);
   }
 }
