@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smart_lion_mobile/app/data/modules/auth/controller.dart';
-import 'package:smart_lion_mobile/app/data/modules/auth/widgets/email_input.dart';
-import 'package:smart_lion_mobile/app/data/modules/auth/widgets/password_input.dart';
+import 'package:smart_lion_mobile/app/modules/auth/controller.dart';
+import 'package:smart_lion_mobile/app/modules/auth/widgets/email_input.dart';
+import 'package:smart_lion_mobile/app/modules/auth/widgets/password_input.dart';
 
-import '../../../../routes/app_routes.dart';
+import '../../../routes/app_routes.dart';
 
 class LoginPage extends GetView<AuthController> {
   const LoginPage({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smart_lion_mobile/app/data/modules/auth/binding.dart';
+import 'package:smart_lion_mobile/app/modules/auth/binding.dart';
 import 'package:smart_lion_mobile/app/routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'app/routes/app_routes.dart';

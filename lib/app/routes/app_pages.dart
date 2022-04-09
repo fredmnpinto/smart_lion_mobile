@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:smart_lion_mobile/app/data/modules/auth/binding.dart';
-import 'package:smart_lion_mobile/app/data/modules/auth/login/page.dart';
+import 'package:smart_lion_mobile/app/modules/auth/binding.dart';
+import 'package:smart_lion_mobile/app/modules/auth/login/page.dart';
 
-import '../data/modules/auth/register/page.dart';
-import '../data/modules/home/page.dart';
+import '../modules/auth/register/page.dart';
+import '../modules/home/page.dart';
 import 'app_routes.dart';
 
 abstract class AppPages {
