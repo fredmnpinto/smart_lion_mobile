@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           IconButton(
               onPressed: () {
-                FirebaseAuth.instance.signOut();
+                // Todo: logout
                 Get.offAndToNamed(Routes.LOGIN);
               },
               icon: const Icon(Icons.logout))

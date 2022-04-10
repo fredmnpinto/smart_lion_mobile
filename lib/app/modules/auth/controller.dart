@@ -17,7 +17,7 @@ class AuthController extends GetxController {
   /// Does not take in any arguments which I don't like very much
   /// but is the simpler way to do it. It uses the values of the
   /// TextEditingControllers to get the email and password.
-  void login() async {
+  Future<void> login() async {
     /* Validates the form through the validator methods on
     * all FormFields within the form */
     if (!loginFormKey.currentState!.validate()) {
@@ -42,7 +42,7 @@ class AuthController extends GetxController {
   /// register submission so it also takes in the
   /// displayName TextEditingController to get the
   /// input.
-  void register() async {
+  Future<void> register() async {
     if (!registerFormKey.currentState!.validate()) {
       return;
     }
@@ -56,6 +56,11 @@ class AuthController extends GetxController {
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Error during registration", e.message!);
     }
+  }
+
+  /// This signs out the user
+  Future<void> logout() async {
+    return FirebaseAuth.instance.signOut();
   }
 
   /// Called on both login() and register() after a
