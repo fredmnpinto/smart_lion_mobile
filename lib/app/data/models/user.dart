@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 class UserModel {
   int? id;
   final int userTypeId;
