@@ -8,9 +8,6 @@ class AuthBinding implements Bindings {
     Get.lazyPut<AuthController>(() {
       return AuthController();
     });
-    Get.lazyPut<NavBarController>(() {
-      return NavBarController();
-    });
   }
 
 }
