@@ -13,15 +13,15 @@ class UserProfilePage extends GetView<UserProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 250, 250, 255),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
           FittedBox(
             fit: BoxFit.fitWidth,
             child: DecoratedBox(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 87, 167, 115),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

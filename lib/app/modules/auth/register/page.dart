@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/modules/auth/controller.dart';
-import 'package:smart_lion_mobile/app/modules/auth/widgets/display_name_input.dart';
-import 'package:smart_lion_mobile/app/modules/auth/widgets/email_input.dart';
-import 'package:smart_lion_mobile/app/modules/auth/widgets/password_input.dart';
+import 'package:smart_lion_mobile/app/modules/widgets/display_name_input.dart';
+import 'package:smart_lion_mobile/app/modules/widgets/email_input.dart';
+import 'package:smart_lion_mobile/app/modules/widgets/password_input.dart';
 
 class RegisterPage extends GetView<AuthController> {
   const RegisterPage({Key? key}) : super(key: key);

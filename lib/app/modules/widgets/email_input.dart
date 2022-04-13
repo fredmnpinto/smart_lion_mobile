@@ -3,8 +3,9 @@ import 'package:smart_lion_mobile/app/data/error_messages.dart';
 
 class EmailInputField extends Container {
   final TextEditingController inputController;
+  final String? initialValue;
   
-  EmailInputField({Key? key, required this.inputController}) : super(key: key);
+  EmailInputField({Key? key, required this.inputController, this.initialValue}) : super(key: key);
   
   @override
   Widget build(BuildContext context) => TextFormField(
@@ -20,6 +21,7 @@ class EmailInputField extends Container {
 
       return null;
     },
+    initialValue: initialValue,
     textInputAction: TextInputAction.next,
     decoration: const InputDecoration(
       labelText: "Email",

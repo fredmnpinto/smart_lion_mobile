@@ -57,7 +57,7 @@ class NavBar extends GetView<NavBarController> {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () => null,
+            onTap: () => Get.toNamed(Routes.USERSETTINGS),
           ),
           Divider(),
           ListTile(
