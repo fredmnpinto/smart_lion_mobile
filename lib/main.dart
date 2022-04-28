@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/modules/auth/binding.dart';
 import 'package:smart_lion_mobile/app/routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:smart_lion_mobile/app/theme/appTheme.dart';
 import 'app/routes/app_routes.dart';
 import 'firebase_options.dart';
 
@@ -22,9 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
-      ),      initialRoute: Routes.LOGIN,
+      theme:  appThemeData,
+      initialRoute: Routes.LOGIN,
       initialBinding: AuthBinding(),
       getPages: AppPages.pages,
     );
