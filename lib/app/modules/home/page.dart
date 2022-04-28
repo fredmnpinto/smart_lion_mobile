@@ -12,7 +12,15 @@ class HomePage extends GetView<HomePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
+      drawer: const NavBar(),
+      body: Center(child: Column(
+        children: const [
+          Spacer(flex: 1,),
+          Text("Slide to the right to see something cool"),
+          Icon(Icons.arrow_right_alt_rounded),
+          Spacer(flex: 1,)
+        ],
+      )),
     );
   } 
 }
