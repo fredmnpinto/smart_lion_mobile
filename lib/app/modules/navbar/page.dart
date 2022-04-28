@@ -31,7 +31,7 @@ class NavBar extends GetView<NavBarController> {
                 ),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
               image: DecorationImage(
                 fit: BoxFit.fill,
@@ -45,25 +45,25 @@ class NavBar extends GetView<NavBarController> {
             onTap: () => Get.toNamed(Routes.USERPROFILE),
           ),
           ListTile(
-            leading: Icon(Icons.map),
-            title: Text('Map'),
-            onTap: () => null,
+            leading: const Icon(Icons.map),
+            title: const Text('Map'),
+            onTap: () {},
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.qr_code_scanner),
             title: Text('QR-Scanner'),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
             onTap: () => Get.toNamed(Routes.USERSETTINGS),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            title: Text('Exit'),
-            leading: Icon(Icons.exit_to_app),
-            onTap: () => null,
+            title: const Text('Exit'),
+            leading: const Icon(Icons.exit_to_app),
+            onTap: () {},
           ),
         ],
       )

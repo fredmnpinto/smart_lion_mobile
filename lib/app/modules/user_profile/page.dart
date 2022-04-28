@@ -26,20 +26,20 @@ class UserProfilePage extends GetView<UserProfileController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 10), //Para simular um margin top
+                  const SizedBox(height: 10), //Para simular um margin top
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_sharp,
                     ),
                     alignment: Alignment.topLeft,
                     iconSize: 16,
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     tooltip: "Go back",
                     onPressed: () => Get.toNamed(Routes.HOME),
                   ),
                   Center(
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
+                      padding: const EdgeInsets.fromLTRB(40, 15, 40, 0),
                       child: ClipOval(
                         child: Image(
                           image: NetworkImage(
@@ -57,7 +57,7 @@ class UserProfilePage extends GetView<UserProfileController> {
               ),
             ),
           ),     
-          SizedBox(height: 10), //Para simular um margin top
+          const SizedBox(height: 10), //Para simular um margin top
           Center(
               child: Text(
               controller.userName,
@@ -67,15 +67,15 @@ class UserProfilePage extends GetView<UserProfileController> {
               ),
             ),
           ),
-          SizedBox(height: 10), //Para simular um margin top
+          const SizedBox(height: 10), //Para simular um margin top
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: const [
                 Text(
                   "0\nPontos",
                   textAlign: TextAlign.center,
-                  style: const TextStyle(    
+                  style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
                   ),
@@ -83,7 +83,7 @@ class UserProfilePage extends GetView<UserProfileController> {
                 Text(
                   "0\nDepositos",
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
                   )
@@ -91,7 +91,7 @@ class UserProfilePage extends GetView<UserProfileController> {
               ],
             ),
           ),
-          SizedBox(height: 10), //Para simular um margin top
+          const SizedBox(height: 10), //Para simular um margin top
         ],
       ),
     );
