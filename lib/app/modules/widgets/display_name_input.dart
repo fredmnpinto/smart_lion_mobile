@@ -3,9 +3,8 @@ import 'package:smart_lion_mobile/app/data/error_messages.dart';
 
 class DisplayNameInputField extends Container {
   final TextEditingController inputController;
-  final String? initialValue;
 
-  DisplayNameInputField({Key? key, required this.inputController, this.initialValue})
+  DisplayNameInputField({Key? key, required this.inputController})
       : super(key: key);
 
   @override
@@ -24,9 +23,8 @@ class DisplayNameInputField extends Container {
 
         return null;
       },
-      initialValue: initialValue,
       textInputAction: TextInputAction.next,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         labelText: "Your Name",
         suffix: Icon(Icons.person),
         border: OutlineInputBorder(),

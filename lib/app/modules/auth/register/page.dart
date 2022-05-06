@@ -40,7 +40,8 @@ class RegisterPage extends GetView<AuthController> {
                             inputController: controller.emailController),
                         const SizedBox(height: separatorHeight),
                         DisplayNameInputField(
-                            inputController: controller.displayNameController),
+                            inputController: controller.displayNameController, 
+                        ),
                         const SizedBox(height: separatorHeight),
                         PasswordInputField(
                             inputController: controller.passwordController),
