@@ -31,13 +31,6 @@ class NavBar extends GetView<NavBarController> {
                 ),
               ),
             ),
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: NetworkImage('https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')
-              ),
-            ),
           ),
           ListTile(
             leading: const Icon(Icons.person),
