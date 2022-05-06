@@ -40,8 +40,8 @@ class NavBar extends GetView<NavBarController> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Profile'),
+            leading: const Icon(Icons.person),
+            title: const Text('Profile'),
             onTap: () => Get.toNamed(Routes.USERPROFILE),
           ),
           ListTile(
@@ -49,9 +49,10 @@ class NavBar extends GetView<NavBarController> {
             title: const Text('Map'),
             onTap: () {},
           ),
-          const ListTile(
-            leading: Icon(Icons.qr_code_scanner),
-            title: Text('QR-Scanner'),
+          ListTile(
+            leading: const Icon(Icons.qr_code_scanner),
+            title: const Text('QR-Scanner'),
+            onTap: () => Get.toNamed(Routes.QRSCANNER),
           ),
           const Divider(),
           ListTile(
