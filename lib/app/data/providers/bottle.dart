@@ -9,6 +9,7 @@ class BottleProvider {
   BottleProvider({required this.httpClient});
 
   Future<List<BottleModel>> getAll() async {
+    /// @TODO
     return [];
   }
 
@@ -43,10 +44,10 @@ class BottleProvider {
   }
 
   void edit(obj) async {
-
+    /// @TODO
   }
 
   void delete(obj) async {
-
+    /// @TODO
   }
 }

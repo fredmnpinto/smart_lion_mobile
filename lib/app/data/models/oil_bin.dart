@@ -4,23 +4,18 @@ class OilBinModel {
   final int? id;
   late final _Coordinates coordinates;
   final String address;
-  final DateTime registerDate;
-  final DateTime updateDate;
 
   static const idAttrName = "id";
   static const coordinateXAttrName = "coordinate_x";
   static const coordinateYAttrName = "coordinate_y";
   static const addressAttrName = "address";
-  static const registerDateAttrName = "register_date";
-  static const updateDateAttrName = "update_date";
+
 
   OilBinModel({
     this.id,
     required double x,
     required double y,
     required this.address,
-    required this.registerDate,
-    required this.updateDate,
   }) {
     coordinates = _Coordinates(x: x, y: y);
   }
@@ -30,8 +25,6 @@ class OilBinModel {
         x: jsonData[coordinateXAttrName]!,
         y: jsonData[coordinateYAttrName]!,
         address: jsonData[addressAttrName],
-        registerDate: DateTime.parse(jsonData[registerDateAttrName].toString()),
-        updateDate: DateTime.parse(jsonData[updateDateAttrName].toString()),
       );
 
   Map<String, dynamic> toJson() => {
@@ -39,8 +32,6 @@ class OilBinModel {
         coordinateXAttrName: coordinates.x,
         coordinateYAttrName: coordinates.y,
         addressAttrName: address,
-        registerDateAttrName: registerDate.toString(),
-        updateDateAttrName: updateDate.toString(),
       };
 }
 

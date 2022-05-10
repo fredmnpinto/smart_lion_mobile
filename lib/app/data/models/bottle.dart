@@ -5,7 +5,7 @@ class BottleModel {
 
   static const idAttrName = "id";
   static const firebaseUidAttrName = 'firebase_uid';
-  static const qrCodeAttrName = "qrCode";
+  static const qrCodeAttrName = "qr_code";
 
   BottleModel({
     this.id,
