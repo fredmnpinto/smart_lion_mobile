@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:smart_lion_mobile/app/data/providers/user.dart';
+import 'package:smart_lion_mobile/app/data/repository/user.dart';
 
+import '../../data/models/user.dart';
 import '../../routes/app_routes.dart';
 
 class AuthController extends GetxController {
@@ -11,6 +16,11 @@ class AuthController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final displayNameController = TextEditingController();
+
+   //repository required
+  final UserRepository repository;
+  
+  AuthController({required this.repository});
 
   /// Basically the handler for the form submission on Login page
   ///
@@ -28,9 +38,7 @@ class AuthController extends GetxController {
     try {
       /* With this we get the FirebaseAuth singleton and through that
       * we call the methods we want. */
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
       onSuccess();
       /* Login failed on the Firebase server side */
     } on FirebaseAuthException catch (e) {
@@ -48,11 +56,14 @@ class AuthController extends GetxController {
     }
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-      await FirebaseAuth.instance.currentUser!
-          .updateDisplayName(displayNameController.text);
+      // Cria no Firebase
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      await FirebaseAuth.instance.currentUser!.updateDisplayName(displayNameController.text);
       onSuccess();
+
+      // Cria uma referencia na nossa API
+      UserModel user = new UserModel(userTypeId: 1,  firebaseUid: FirebaseAuth.instance.currentUser!.uid);
+      repository.apiUser.add(user);
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Error during registration", e.message!);
     }
