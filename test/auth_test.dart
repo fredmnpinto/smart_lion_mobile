@@ -10,6 +10,7 @@ import 'package:smart_lion_mobile/main.dart';
 import 'package:smart_lion_mobile/app/modules/auth/controller.dart';
 
 void main() {
+  /*
   test("Register test", () async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
@@ -75,5 +76,5 @@ void main() {
 
       user.delete();
     }
-  });
+  });*/
 }

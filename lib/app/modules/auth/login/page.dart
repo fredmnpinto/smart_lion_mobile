@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/modules/auth/controller.dart';
 import 'package:smart_lion_mobile/app/modules/widgets/email_input.dart';
 import 'package:smart_lion_mobile/app/modules/widgets/password_input.dart';
+import 'package:smart_lion_mobile/app/theme/appTheme.dart';
 
 import '../../../routes/app_routes.dart';
 
@@ -12,16 +13,17 @@ class LoginPage extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: const Text('Smartlion - Login')),
       body: Center(
         child: Form(
           key: controller.loginFormKey,
-          child: Padding(
+          child: Padding( 
             padding: const EdgeInsets.all(20.0),
             child: Center(
               child: Column(
                 children: [
+                  const Spacer(flex: 1,),
                   const SizedBox(
                     height: 15,
                   ),
@@ -36,11 +38,17 @@ class LoginPage extends GetView<AuthController> {
                   const SizedBox(height: 15),
                   PasswordInputField(inputController: controller.passwordController),
                   const SizedBox(height: 15),
-                  TextButton(onPressed: () { Get.toNamed(Routes.REGISTER); }, child: const Text("Sign Up")),
+                  TextButton(
+                    style: Theme.of(context).textButtonTheme.style,
+                    onPressed: () { 
+                      Get.toNamed(Routes.REGISTER); 
+                    }, 
+                    child: const Text("Sign Up")),
 
 
                   const Spacer(),
                   ElevatedButton(
+                    style: Theme.of(context).elevatedButtonTheme.style,
                     onPressed: controller.login,
                     child: const Text("Login"),
                   ),

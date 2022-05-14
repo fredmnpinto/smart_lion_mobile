@@ -14,15 +14,15 @@ class InputsForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: controller.userSettingsFormKey,     
+      key: GlobalKey<FormState>(),
       child: Padding(
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(
           children: [
             SizedBox(height: 40),
-            DisplayNameInputField(inputController: controller.displayNameController, /*initialValue: controller.userName*/),
+            DisplayNameInputField(inputController: controller.displayNameController),
             SizedBox(height: 10), //Para simular um margin top
-            EmailInputField(inputController: controller.emailController, /*initialValue: controller.userEmail*/),
+            EmailInputField(inputController: controller.emailController),
             SizedBox(height: 10), //Para simular um margin top
             PasswordInputField(inputController: controller.passwordController),
             SizedBox(height: 10), //Para simular um margin top

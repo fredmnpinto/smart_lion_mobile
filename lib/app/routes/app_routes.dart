@@ -4,4 +4,5 @@ class Routes {
   static const REGISTER = "/register";
   static const USERPROFILE = "/userprofile";
   static const USERSETTINGS = "/usersettings";
+  static const QRSCANNER = "/qrscanner";
 }
