@@ -37,7 +37,11 @@ dependencies:
   get: ^4.6.1
   firebase_core: ^1.14.0
   firebase_auth: ^3.3.12
-  barcode_scan: ^3.0.1
+  barcode_scan2: ^4.2.1
+  flutter_map: any # or the latest version on Pub
+  latlong2: ^0.8.1
+  geolocator: ^8.2.1
+  geolocator_android: ^3.1.0
 
 dev_dependencies:
   flutter_test:

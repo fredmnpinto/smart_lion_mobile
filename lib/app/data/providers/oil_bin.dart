@@ -11,7 +11,25 @@ class OilBinProvider {
   OilBinProvider({required this.httpClient});
 
   Future<List<OilBinModel>> getAll() async {
-    return [];
+    final response = await httpClient.get(
+      Uri.parse(DBHelper.API_URL+'/oil-bin/')
+    );
+
+    if(response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      Map<String, dynamic>parsedJson = jsonDecode(response.body); 
+
+      Iterable parsedListJson = parsedJson["data"];
+
+      List<OilBinModel> oilBinList = List<OilBinModel>.from(parsedListJson.map((model)=> OilBinModel.fromJson(model)));
+      
+      return oilBinList;
+    }else{
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load Bottle');
+    }
   }
 
   Future<OilBinModel> getId(id) async {

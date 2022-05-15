@@ -8,7 +8,6 @@
             "name": "smart_lion_mobile",
             "request": "launch",
             "type": "dart",
-            "args": ["--no-sound-null-safety"]
         },
         {
             "name": "smart_lion_mobile (profile mode)",

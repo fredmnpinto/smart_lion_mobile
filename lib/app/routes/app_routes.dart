@@ -5,4 +5,5 @@ class Routes {
   static const USERPROFILE = "/userprofile";
   static const USERSETTINGS = "/usersettings";
   static const QRSCANNER = "/qrscanner";
+  static const MAP = "/map";
 }

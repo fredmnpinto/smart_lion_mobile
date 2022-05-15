@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/modules/auth/binding.dart';
 import 'package:smart_lion_mobile/app/modules/auth/login/page.dart';
 import 'package:smart_lion_mobile/app/modules/home/binding.dart';
+import 'package:smart_lion_mobile/app/modules/map/binding.dart';
 import 'package:smart_lion_mobile/app/modules/navbar/binding.dart';
 import 'package:smart_lion_mobile/app/modules/navbar/controller.dart';
 import 'package:smart_lion_mobile/app/modules/qr_scanner/binding.dart';
@@ -13,6 +14,7 @@ import 'package:smart_lion_mobile/app/modules/user_settings/page.dart';
 
 import '../modules/auth/register/page.dart';
 import '../modules/home/page.dart';
+import '../modules/map/page.dart';
 import 'app_routes.dart';
 
 abstract class AppPages {
@@ -24,5 +26,6 @@ abstract class AppPages {
     GetPage(name: Routes.USERPROFILE, page:()=> const UserProfilePage(), binding: UserProfileBinding()),
     GetPage(name: Routes.USERSETTINGS, page:()=> const UserSettingsPage(), binding: UserSettingsBinding()),
     GetPage(name: Routes.QRSCANNER, page:()=> const QRScannerPage(), binding: QRScannerBinding()),
+    GetPage(name: Routes.MAP, page:()=> const MapPage(), binding: MapBinding()),
   ];
 }

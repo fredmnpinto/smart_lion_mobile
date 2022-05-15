@@ -12,7 +12,11 @@ class OilBinRepository {
     return api.getId(id);
   }
 
-  add(OilBinModel oilBin) {
+  void add(OilBinModel oilBin) {
     api.add(oilBin);
+  }
+
+  Future<List<OilBinModel>> getAll() {
+    return api.getAll();
   }
 }

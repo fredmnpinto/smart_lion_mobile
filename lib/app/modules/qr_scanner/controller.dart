@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import 'package:barcode_scan/barcode_scan.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:smart_lion_mobile/app/data/models/bottle.dart';
 import 'package:smart_lion_mobile/app/data/models/user.dart';
 import 'package:smart_lion_mobile/app/data/repository/bottle.dart';

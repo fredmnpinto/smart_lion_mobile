@@ -40,7 +40,7 @@ class NavBar extends GetView<NavBarController> {
           ListTile(
             leading: const Icon(Icons.map),
             title: const Text('Map'),
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.MAP),
           ),
           ListTile(
             leading: const Icon(Icons.qr_code_scanner),
