@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import '../../routes/app_routes.dart';
-import 'controller.dart';
+import '../../../routes/app_routes.dart';
+import '../controller.dart';
 
-class QRScannerPage extends GetView<QRScannerController> {
+class QRScannerPage extends GetView<DepositController> {
   const QRScannerPage({Key? key}) : super(key: key);
 
   @override

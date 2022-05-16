@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/data/error_messages.dart';
-import 'package:smart_lion_mobile/app/modules/qr_scanner/controller.dart';
 
-import '../controller.dart';
+import '../../controller.dart';
 
 class SearchBarInputField extends Container {
-  final SearchLocationsController controller;
+  final DepositController controller;
 
   SearchBarInputField({Key? key, required this.controller})
       : super(key: key);

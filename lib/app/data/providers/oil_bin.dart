@@ -34,13 +34,13 @@ class OilBinProvider {
   
   Future<OilBinModel> getFromId(id) async {
     final response = await httpClient.get(
-      Uri.parse(DBHelper.API_URL+'/oil-bin/'+id)
+      Uri.parse(DBHelper.API_URL+'/oil-bin/'+id.toString())
     );
 
     if(response.statusCode == 200) {
       // If the server did return a 200 OK response,
       // then parse the JSON.
-      return OilBinModel.fromJson(jsonDecode(response.body));
+      return OilBinModel.fromJson(jsonDecode(response.body)["data"]);
     }else{
       // If the server did not return a 200 OK response,
       // then throw an exception.

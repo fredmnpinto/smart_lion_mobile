@@ -26,7 +26,7 @@ class DepositModel {
       );
 
   Map<String, dynamic> toJson() => {
-        idAttrName: id!,
+        //idAttrName: id== null ? 0 : id,
         bottleIdAttrName: bottleId,
         oilBinIdAttrName: oilBinId,
       };

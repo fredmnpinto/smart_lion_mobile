@@ -22,8 +22,8 @@ class OilBinModel {
 
   factory OilBinModel.fromJson(Map<String, dynamic> jsonData) => OilBinModel(
         id: jsonData[idAttrName],
-        x: jsonData[coordinateXAttrName]!,
-        y: jsonData[coordinateYAttrName]!,
+        x: jsonData[coordinateXAttrName],
+        y: jsonData[coordinateYAttrName],
         address: jsonData[addressAttrName],
       );
 

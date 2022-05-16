@@ -7,4 +7,5 @@ class Routes {
   static const QRSCANNER = "/qrscanner";
   static const SEARCHLOCATIONS = "/qrscanner/searchlocations";
   static const MAP = "/map";
+  static const CONFIRMDEPOSIT = "/qrscanner/confirmDeposit";
 }

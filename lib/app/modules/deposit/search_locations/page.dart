@@ -1,11 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'controller.dart';
+import '../controller.dart';
 import 'widgets/search_bar_input.dart';
 
-class SearchLocationsPage extends GetView<SearchLocationsController> {
+class SearchLocationsPage extends GetView<DepositController> {
   const SearchLocationsPage({Key? key}) : super(key: key);
 
   @override
@@ -18,9 +17,9 @@ class SearchLocationsPage extends GetView<SearchLocationsController> {
             children: [
               SearchBarInputField(controller: controller),
               Expanded( 
-                child: GetX<SearchLocationsController>(
+                child: GetX<DepositController>(
                 initState: (state) { 
-                  Get.find<SearchLocationsController>().searchOilBins("");
+                  Get.find<DepositController>().searchOilBins("");
                 },
                 builder: (_) { 
                   return controller.oilBins.length < 1 ?
@@ -32,7 +31,7 @@ class SearchLocationsPage extends GetView<SearchLocationsController> {
                       return ListTile(
                         title: Text(controller.oilBins[index].address),
                         subtitle: Text(controller.oilBins[index].coordinates.x.toString()+" "+controller.oilBins[index].coordinates.y.toString()),
-                        onTap: () { print(controller.oilBins[index].id); },
+                        onTap: () { controller.selectOilBin(controller.oilBins[index].id); },
                       );
                     }
                   );
