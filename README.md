@@ -30,7 +30,9 @@
     <a href="https://github.com/fredmnpinto/smart_lion_mobile"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/fredmnpinto/smart_lion_mobile">View Demo</a>
+    <a href="https://github.com/21F0rc3/sl-api/">SmartLion API</a>
+    ·
+    <a href="https://github.com/fredmnpinto/smart_lion_mobile/">SmartLion Mobile</a>
     ·
     <a href="https://github.com/fredmnpinto/smart_lion_mobile/issues">Report Bug</a>
     ·
