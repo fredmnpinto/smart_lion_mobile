@@ -31,8 +31,8 @@ class OilBinProvider {
       throw Exception('Failed to load Bottle');
     }
   }
-
-  Future<OilBinModel> getId(id) async {
+  
+  Future<OilBinModel> getFromId(id) async {
     final response = await httpClient.get(
       Uri.parse(DBHelper.API_URL+'/oil-bin/'+id)
     );

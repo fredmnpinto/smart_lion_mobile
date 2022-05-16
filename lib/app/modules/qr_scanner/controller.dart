@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import 'package:barcode_scan2/barcode_scan2.dart';
@@ -12,6 +13,8 @@ import 'package:smart_lion_mobile/app/modules/qr_scanner/page.dart';
 import 'package:smart_lion_mobile/app/routes/app_routes.dart';
 
 class QRScannerController extends GetxController {
+  final searchBarController = TextEditingController();
+
   final BottleRepository repository;
 
   QRScannerController({required this.repository});
@@ -28,8 +31,12 @@ class QRScannerController extends GetxController {
       qrCode: codeSanner.rawContent, 
     );
 
-    repository.add(bottle);
+    selectOilBin();
+
+    //repository.add(bottle);
   }
 
-
+  selectOilBin() {
+    Get.toNamed(Routes.SEARCHLOCATIONS);
+  }
 }
