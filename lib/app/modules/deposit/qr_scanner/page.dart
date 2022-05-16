@@ -10,30 +10,27 @@ class QRScannerPage extends GetView<DepositController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold (
+            appBar: AppBar(
+              title: Text("Scan QR Code"),
+              centerTitle: true,
+            ),
             body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 30), //Para simular um margin top
-                IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back_sharp,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  IconButton(
+                      icon: Icon(Icons.qr_code_scanner),
+                      onPressed: () {controller.scan();},
+                      iconSize: 300,
                   ),
-                  alignment: Alignment.topLeft,
-                  iconSize: 60,
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  tooltip: "Go back",
-                  onPressed: () => Get.toNamed(Routes.HOME),
-                ),
-                Center (
-                  child: IconButton(
-                    icon: Icon(Icons.qr_code_scanner),
-                    onPressed: () {
-                      controller.scan();
-                    },
-                    iconSize: 300,
-                  ),
-                ),
-              ]
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(30, 0, 30, 0), 
+                    child: TextButton(
+                              child: Text("SCAN"),
+                              onPressed: () {controller.scan();},
+                            ),
+                  )
+                ]
             )
           );
   }

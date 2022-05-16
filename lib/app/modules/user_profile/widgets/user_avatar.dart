@@ -6,8 +6,10 @@ import 'package:smart_lion_mobile/app/modules/user_settings/controller.dart';
 import 'package:smart_lion_mobile/app/routes/app_routes.dart';
 import 'package:smart_lion_mobile/app/theme/appTheme.dart';
 
+import '../controller.dart';
+
 class UserAvatar extends StatelessWidget {
-  final UserSettingsController controller;
+  final UserProfileController controller;
 
   const UserAvatar({Key? key, required this.controller}) : super(key: key);
 

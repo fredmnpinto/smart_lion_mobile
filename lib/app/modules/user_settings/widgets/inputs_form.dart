@@ -15,24 +15,30 @@ class InputsForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: GlobalKey<FormState>(),
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Column(
-          children: [
-            SizedBox(height: 40),
-            DisplayNameInputField(inputController: controller.displayNameController),
-            SizedBox(height: 10), //Para simular um margin top
-            EmailInputField(inputController: controller.emailController),
-            SizedBox(height: 10), //Para simular um margin top
-            PasswordInputField(inputController: controller.passwordController),
-            SizedBox(height: 10), //Para simular um margin top
-            ElevatedButton(
-              onPressed: controller.saveSettings,
-              child: const Text("Save Settings"),
-            ),
-          ],
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Theme.of(context).backgroundColor,
         ),
-      ),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              DisplayNameInputField(inputController: controller.displayNameController),
+              SizedBox(height: 10), //Para simular um margin top
+              EmailInputField(inputController: controller.emailController),
+              SizedBox(height: 10), //Para simular um margin top
+              PasswordInputField(inputController: controller.passwordController),
+              Spacer(),
+              TextButton(
+                onPressed: controller.saveSettings,
+                child: const Text("SAVE SETTINGS"),
+              ),
+              SizedBox(height: 20), //Para simular um margin bottom
+            ],
+          ),
+        ),
+      )
     );
   }
   

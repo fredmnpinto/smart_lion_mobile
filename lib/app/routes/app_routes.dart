@@ -4,8 +4,8 @@ class Routes {
   static const REGISTER = "/register";
   static const USERPROFILE = "/userprofile";
   static const USERSETTINGS = "/usersettings";
-  static const QRSCANNER = "/qrscanner";
-  static const SEARCHLOCATIONS = "/qrscanner/searchlocations";
+  static const QRSCANNER = "/deposit/qrscanner";
+  static const SEARCHLOCATIONS = "/deposit/searchlocations";
+  static const CONFIRMDEPOSIT = "/deposit/confirmDeposit";
   static const MAP = "/map";
-  static const CONFIRMDEPOSIT = "/qrscanner/confirmDeposit";
 }

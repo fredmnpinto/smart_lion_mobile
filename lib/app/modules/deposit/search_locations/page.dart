@@ -11,7 +11,7 @@ class SearchLocationsPage extends GetView<DepositController> {
   Widget build(BuildContext context) {
     return Scaffold(
           appBar: AppBar(
-            title: const Text('Select the location of this deposit'),
+            title: const Text('Select Deposit Location'),
           ),
           body: Column(
             children: [

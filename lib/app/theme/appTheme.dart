@@ -1,10 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+/*
+ * * * * * * * * * * * * * * * * * *
+ *                                 *
+ *          Color Pallete          *
+ *                                 *
+ * * * * * * * * * * * * * * * * * *
+ */
+
+const PRIMARY_COLOR = Color.fromARGB(255, 35, 206, 107);
+const SECONDARY_COLOR = Color.fromARGB(255, 247, 249, 249);
+const TERTIARY_COLOR = Color.fromARGB(0, 0, 0, 0);
+const QUATERNARY_COLOR = Color.fromARGB(255, 0, 0, 0);
+
+/*
+ * * * * * * * * * * * * * * * * * *
+ *                                 *
+ *            App Theme            *
+ *                                 *
+ * * * * * * * * * * * * * * * * * *
+ */
+
 
 final ThemeData appThemeData = ThemeData(
-  primaryColor: Color.fromARGB(255, 35, 206, 107),
-  backgroundColor: Color.fromARGB(255, 247, 249, 249),
+  primaryColor: PRIMARY_COLOR,
+  backgroundColor: SECONDARY_COLOR,
   
-  colorScheme: ThemeData().colorScheme.copyWith(primary: Color.fromARGB(255, 35, 206, 107),),
+  colorScheme: ThemeData().colorScheme.copyWith(primary: PRIMARY_COLOR,),
+
+  /*
+  |--------------------------------------------------------------------------
+  | App Bar
+  |--------------------------------------------------------------------------
+  |
+  */
+
+  appBarTheme: const AppBarTheme(
+    backgroundColor: TERTIARY_COLOR,
+    foregroundColor: QUATERNARY_COLOR,
+    elevation: 0,
+  ),
+
 
   /*
   |--------------------------------------------------------------------------
@@ -15,9 +52,9 @@ final ThemeData appThemeData = ThemeData(
 
   // Default
 
-  buttonTheme: ButtonThemeData(
-    buttonColor: Color.fromARGB(255, 35, 206, 107),
-    focusColor: Color.fromARGB(255, 35, 206, 107),
+  buttonTheme: const ButtonThemeData(
+    buttonColor: PRIMARY_COLOR,
+    focusColor: PRIMARY_COLOR,
   ),
 
 
@@ -25,7 +62,7 @@ final ThemeData appThemeData = ThemeData(
 
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle (
-      backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 35, 206, 107))
+      backgroundColor: MaterialStateProperty.all(PRIMARY_COLOR)
     )
   ),
 
@@ -34,8 +71,16 @@ final ThemeData appThemeData = ThemeData(
 
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle (
-      foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 35, 206, 107)),
-      backgroundColor: MaterialStateProperty.all(Color.fromARGB(0, 35, 206, 106))
+      foregroundColor: MaterialStateProperty.all(SECONDARY_COLOR),
+      backgroundColor: MaterialStateProperty.all(PRIMARY_COLOR),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder> (
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          side: BorderSide(color: PRIMARY_COLOR)
+        ),
+      ),
+      padding: MaterialStateProperty.all<EdgeInsets>(
+            EdgeInsets.fromLTRB(100, 20, 100, 20)),
     )
   ),
 );
