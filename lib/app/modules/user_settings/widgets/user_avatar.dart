@@ -21,7 +21,7 @@ class UserAvatar extends StatelessWidget {
           Center(
             child: Padding(
               padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
-              child: ClipOval(
+              child: ElevatedButton(child: ClipOval(
                 child: Image(
                   image: NetworkImage(
                     // Se a foto não existir ele coloca uma foto padrão de um avatar
@@ -32,6 +32,8 @@ class UserAvatar extends StatelessWidget {
                   height: 40,
                 ),
               ),
+              onPressed: () {controller.getFromGallery();},
+              )
             ),
           ),
         ],
