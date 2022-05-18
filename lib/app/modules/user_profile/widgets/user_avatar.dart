@@ -18,13 +18,13 @@ class UserAvatar extends StatelessWidget {
     return FittedBox(
       fit: BoxFit.fitWidth,
       child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Center(
             child: Padding(
               padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
               child: ClipOval(
-                child: Image(
+                child: Image(  
                   image: NetworkImage(
                     // Se a foto não existir ele coloca uma foto padrão de um avatar
                     controller.userPhotoURL ?? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -39,6 +39,5 @@ class UserAvatar extends StatelessWidget {
         ],
       ),
     );
-  }
-  
+  }  
 }

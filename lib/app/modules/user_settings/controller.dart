@@ -38,10 +38,14 @@ class UserSettingsController extends GetxController {
 
     FirebaseAuth.instance.currentUser!.updateDisplayName(displayNameController.text);
     FirebaseAuth.instance.currentUser!.updateEmail(emailController.text);
-
   }
   
-  /// Get from gallery
+  /// Abre a galeria do dispositivo
+  /// 
+  /// Permite que o utilizador escolha uma foto.
+  /// Apos escolher essa foto sera carregada no servidor e atualizada no perfil
+  /// 
+  /// author: Gabriel Fernandes   19/05/2022
   getFromGallery() async {
     final ImagePicker _picker = ImagePicker();
     // Pick an image
@@ -52,6 +56,11 @@ class UserSettingsController extends GetxController {
     uploadProfileImage(file);
   }
 
+  /// Envia a imagem para o storage do firebase
+  /// E tambem atualiza o url da foto de perfil do utilizador firebase com o link
+  /// da storage e o diretorio que a armazena
+  /// 
+  /// author: Gabriel Fernandes   19/05/2022
   uploadProfileImage(File file) async {
     try {
       await storageRef.putFile(file);
@@ -59,7 +68,7 @@ class UserSettingsController extends GetxController {
       var downurl = await storageRef.getDownloadURL();
       FirebaseAuth.instance.currentUser!.updatePhotoURL(downurl.toString()+"/profilePicture");
     } catch (e) {
-      print('error occured');
+      print('UserSettingsController.uploadProfileImage(): error occured');
     }
   }
 }

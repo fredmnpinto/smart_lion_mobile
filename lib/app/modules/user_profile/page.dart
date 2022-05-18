@@ -17,15 +17,13 @@ class UserProfilePage extends GetView<UserProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
+        // Botão para opções
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20.0),
+            padding: const EdgeInsets.only(right: 20.0),
             child: GestureDetector(
               onTap: () { Get.toNamed(Routes.USERSETTINGS); },
-              child: Icon(
-                Icons.settings,
-                size: 26.0,
-              ),
+              child: const Icon(Icons.settings),
             )
           ), 
         ]

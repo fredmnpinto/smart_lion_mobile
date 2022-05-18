@@ -16,36 +16,41 @@ class UserAvatar extends StatelessWidget {
     return FittedBox(
       fit: BoxFit.fitWidth,
       child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Center(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
+              padding: const EdgeInsets.fromLTRB(40, 15, 40, 0),
               child: Material(
                 color: Colors.blue,
                 elevation: 8,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 clipBehavior: Clip.antiAliasWithSaveLayer,
+                // Para fazer efeito de "toque"
                 child: InkWell(
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                        Ink.image(
-                            image: NetworkImage(
-                              // Se a foto não existir ele coloca uma foto padrão de um avatar
-                              controller.userPhotoURL ?? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-                            ),
-                            fit: BoxFit.cover,
-                            width: 40,
-                            height: 40,
-                          ),
-                          Icon(
-                            Icons.camera_alt,
-                            size: 10,
-                            color: Colors.white,
-                          ),
+                      // Image de Ava
+                      Ink.image(
+                        image: NetworkImage(
+                          // Se a foto não existir ele coloca uma foto padrão de um avatar
+                          controller.userPhotoURL ?? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+                        ),
+                        fit: BoxFit.cover,
+                        width: 40,
+                        height: 40,
+                      ),
+                      
+                      // Icone por "cima" do Ava
+                      const Icon(
+                        Icons.camera_alt,
+                        size: 10,
+                        color: Colors.white,
+                      ),
                     ],
                   ),
+
                 onTap: () {controller.getFromGallery();},
               )
               )

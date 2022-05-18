@@ -7,7 +7,7 @@ class UserProfileController extends GetxController {
   final _userEmail = FirebaseAuth.instance.currentUser!.email.obs;
   final _userPhotoURL = FirebaseAuth.instance.currentUser!.photoURL.obs;
 
-  get userName => this._userName.value;
-  get userEmail => this._userEmail.value;
-  get userPhotoURL => this._userPhotoURL.value;
+  get userName => _userName.value;
+  get userEmail => _userEmail.value;
+  get userPhotoURL => _userPhotoURL.value;
 }
