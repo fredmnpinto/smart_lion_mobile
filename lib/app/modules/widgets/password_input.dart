@@ -20,6 +20,10 @@ class PasswordInputField extends Container {
 
       return null;
     },
+    obscureText: true,
+    // Para prevenir que o dispositivo revele parte da password
+    enableSuggestions: false,
+    autocorrect: false,
     textInputAction: TextInputAction.next,
     decoration: const InputDecoration(
       labelText: "Password",

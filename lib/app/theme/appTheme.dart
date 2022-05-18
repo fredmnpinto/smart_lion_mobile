@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 
 const PRIMARY_COLOR = Color.fromARGB(255, 35, 206, 107);
 const SECONDARY_COLOR = Color.fromARGB(255, 247, 249, 249);
-const TERTIARY_COLOR = Color.fromARGB(0, 0, 0, 0);
+const TERTIARY_COLOR = Color.fromARGB(0, 255, 255, 255);
 const QUATERNARY_COLOR = Color.fromARGB(255, 0, 0, 0);
 
 /*
@@ -60,16 +60,17 @@ final ThemeData appThemeData = ThemeData(
 
   // Elevated Button 
 
-  elevatedButtonTheme: ElevatedButtonThemeData(
+  textButtonTheme: TextButtonThemeData(
     style: ButtonStyle (
-      backgroundColor: MaterialStateProperty.all(PRIMARY_COLOR)
+      foregroundColor: MaterialStateProperty.all(PRIMARY_COLOR),
+      backgroundColor: MaterialStateProperty.all(TERTIARY_COLOR)
     )
   ),
 
 
   // Text Button
 
-  textButtonTheme: TextButtonThemeData(
+  elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle (
       foregroundColor: MaterialStateProperty.all(SECONDARY_COLOR),
       backgroundColor: MaterialStateProperty.all(PRIMARY_COLOR),
