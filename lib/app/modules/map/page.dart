@@ -1,5 +1,6 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:smart_lion_mobile/app/data/models/oil_bin.dart';
+import 'package:smart_lion_mobile/app/modules/widgets/bottom_navbar.dart';
 import 'controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class MapPage extends GetView<MapPageController> {
         Get.find<MapPageController>().getAllOilBins();
       },
       builder: (_) { 
-        return  
+        return Scaffold(
+            body:
           (_.userLocation.latitude == 0 && _.userLocation.longitude == 0) ? 
               Center(child: CircularProgressIndicator(),)
               :
@@ -36,7 +38,9 @@ class MapPage extends GetView<MapPageController> {
               markers: _.getAllMarkers(),
               ),
             ],
-          );
+          ),
+          bottomNavigationBar: BottomNavBar(),
+        );
       },
     );
   }

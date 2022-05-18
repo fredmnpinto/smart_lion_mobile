@@ -52,6 +52,6 @@ class LoginController extends GetxController {
   void onSuccess() {
     Get.snackbar("Success",
         "You are logged in, ${FirebaseAuth.instance.currentUser!.displayName}!");
-    Get.offAndToNamed(Routes.HOME);
+    Get.offAndToNamed(Routes.USERPROFILE);
   }
 }

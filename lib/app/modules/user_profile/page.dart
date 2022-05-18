@@ -3,7 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:smart_lion_mobile/app/routes/app_routes.dart';
 
+import '../widgets/bottom_navbar.dart';
 import 'controller.dart';
 import 'widgets/user_avatar.dart';
 import 'widgets/user_profile_view.dart';
@@ -15,7 +17,18 @@ class UserProfilePage extends GetView<UserProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () { Get.toNamed(Routes.USERSETTINGS); },
+              child: Icon(
+                Icons.settings,
+                size: 26.0,
+              ),
+            )
+          ), 
+        ]
       ),
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
@@ -24,6 +37,7 @@ class UserProfilePage extends GetView<UserProfileController> {
           Expanded(flex: 3, child: UserProfileView(controller: controller)),
         ],
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
   

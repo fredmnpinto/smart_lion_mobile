@@ -28,9 +28,9 @@ class MapPageController extends GetxController {
   }
 
   getAllOilBins() {
-    repository.getAll().then((List<OilBinModel> list) {
+    /*repository.getAll().then((List<OilBinModel> list) {
       this.oilBins = list;
-    });
+    });*/
   }
 
   List<Marker> getAllMarkers() {

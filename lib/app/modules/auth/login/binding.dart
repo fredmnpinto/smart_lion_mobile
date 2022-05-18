@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:smart_lion_mobile/app/data/providers/user.dart';
 import 'package:smart_lion_mobile/app/data/repository/user.dart';
-import 'package:smart_lion_mobile/app/modules/navbar/controller.dart';
 
 import 'package:http/http.dart' as http;
 
