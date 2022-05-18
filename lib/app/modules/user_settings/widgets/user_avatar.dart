@@ -21,18 +21,33 @@ class UserAvatar extends StatelessWidget {
           Center(
             child: Padding(
               padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
-              child: ElevatedButton(child: ClipOval(
-                child: Image(
-                  image: NetworkImage(
-                    // Se a foto não existir ele coloca uma foto padrão de um avatar
-                    controller.userPhotoURL ?? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+              child: Material(
+                color: Colors.blue,
+                elevation: 8,
+                shape: CircleBorder(),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: InkWell(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                        Ink.image(
+                            image: NetworkImage(
+                              // Se a foto não existir ele coloca uma foto padrão de um avatar
+                              controller.userPhotoURL ?? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+                            ),
+                            fit: BoxFit.cover,
+                            width: 40,
+                            height: 40,
+                          ),
+                          Icon(
+                            Icons.camera_alt,
+                            size: 10,
+                            color: Colors.white,
+                          ),
+                    ],
                   ),
-                  fit: BoxFit.cover,
-                  width: 40,
-                  height: 40,
-                ),
-              ),
-              onPressed: () {controller.getFromGallery();},
+                onTap: () {controller.getFromGallery();},
+              )
               )
             ),
           ),

@@ -10,6 +10,4 @@ class NavBarController extends GetxController {
   get userName => this._userName.value;
   get userEmail => this._userEmail.value;
   get userPhotoURL => this._userPhotoURL.value;
-
-
 }

@@ -21,7 +21,7 @@ class UserSettingsController extends GetxController {
   get userPhotoURL => this._userPhotoURL.value;
 
   final storage = FirebaseStorage.instance;
- // Create a Storage Ref w/ username
+  // Create a Storage Ref w/ username
   final storageRef = FirebaseStorage.instance.ref(FirebaseAuth.instance.currentUser!.uid+'/profilePicture/');
 
   /// Guarda todas as informações dos inputs e atualiza no utilizador
@@ -38,6 +38,7 @@ class UserSettingsController extends GetxController {
 
     FirebaseAuth.instance.currentUser!.updateDisplayName(displayNameController.text);
     FirebaseAuth.instance.currentUser!.updateEmail(emailController.text);
+
   }
   
   /// Get from gallery
@@ -48,11 +49,15 @@ class UserSettingsController extends GetxController {
     
     File file = File(image!.path);
 
-    try {
-      await storageRef.putFile(file!);
+    uploadProfileImage(file);
+  }
 
-      var dowurl = await storageRef.getDownloadURL();
-      FirebaseAuth.instance.currentUser!.updatePhotoURL(dowurl.toString()+"/profilePicture");
+  uploadProfileImage(File file) async {
+    try {
+      await storageRef.putFile(file);
+
+      var downurl = await storageRef.getDownloadURL();
+      FirebaseAuth.instance.currentUser!.updatePhotoURL(downurl.toString()+"/profilePicture");
     } catch (e) {
       print('error occured');
     }
