@@ -39,7 +39,7 @@ class MapPage extends GetView<MapPageController> {
             ],
           ),
           
-          bottomNavigationBar: BottomNavBar(),
+          bottomNavigationBar: BottomNavBar(currentIdx: 1),
         );
       },
     );

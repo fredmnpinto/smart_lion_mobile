@@ -9,8 +9,8 @@ import 'package:flutter/services.dart';
  * * * * * * * * * * * * * * * * * *
  */
 
-const PRIMARY_COLOR = Color.fromARGB(255, 35, 206, 107);
-const SECONDARY_COLOR = Color.fromARGB(255, 247, 249, 249);
+const PRIMARY_COLOR = Color.fromARGB(255, 255, 215, 0);
+const SECONDARY_COLOR = Color.fromARGB(255, 251, 255, 254);
 const TERTIARY_COLOR = Color.fromARGB(0, 255, 255, 255);
 const QUATERNARY_COLOR = Color.fromARGB(255, 0, 0, 0);
 
@@ -26,8 +26,9 @@ const QUATERNARY_COLOR = Color.fromARGB(255, 0, 0, 0);
 final ThemeData appThemeData = ThemeData(
   primaryColor: PRIMARY_COLOR,
   backgroundColor: SECONDARY_COLOR,
+  scaffoldBackgroundColor: SECONDARY_COLOR,
   
-  colorScheme: ThemeData().colorScheme.copyWith(primary: PRIMARY_COLOR,),
+ // colorScheme: ThemeData().colorScheme.copyWith(primary: PRIMARY_COLOR,),
 
   /*
   |--------------------------------------------------------------------------
@@ -42,6 +43,18 @@ final ThemeData appThemeData = ThemeData(
     elevation: 0,
   ),
 
+
+  /*
+  |--------------------------------------------------------------------------
+  | Bottom Nav Bar
+  |--------------------------------------------------------------------------
+  |
+  */
+  bottomAppBarColor: PRIMARY_COLOR,
+
+  bottomAppBarTheme: const BottomAppBarTheme(
+    color: TERTIARY_COLOR,
+  ),
 
   /*
   |--------------------------------------------------------------------------
@@ -94,4 +107,33 @@ final ThemeData appThemeData = ThemeData(
   */
 
   fontFamily: "Roboto",
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Inputs
+  |--------------------------------------------------------------------------
+  |
+  */
+
+  inputDecorationTheme: const InputDecorationTheme(
+    fillColor: QUATERNARY_COLOR,
+    labelStyle: TextStyle(color: QUATERNARY_COLOR),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: PRIMARY_COLOR
+      ),
+    )
+  ),
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Icons
+  |--------------------------------------------------------------------------
+  |
+  */
+  iconTheme: const IconThemeData(
+    color: QUATERNARY_COLOR,
+  ),
 );

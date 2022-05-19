@@ -17,6 +17,7 @@ class UserProfilePage extends GetView<UserProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor, 
         // Botão para opções
         actions: [
           Padding(
@@ -28,14 +29,13 @@ class UserProfilePage extends GetView<UserProfileController> {
           ), 
         ]
       ),
-      backgroundColor: Theme.of(context).primaryColor,
       body: Column(
         children: [
           Expanded(flex: 1, child: UserAvatar(controller: controller)),
           Expanded(flex: 3, child: UserProfileView(controller: controller)),
         ],
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(currentIdx: 0),
     );
   }
   
