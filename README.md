@@ -89,12 +89,17 @@ samples, guidance on mobile development, and a full API reference.
 
 ## UI/UX
 
-<image src="https://user-images.githubusercontent.com/57480698/168495230-5c2113d9-2c00-43bf-9708-b8681b0dd9dd.gif" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169343557-2c8f7fe8-c77a-4b4d-a913-31a2366671f0.gif" width=200>
 <div>
-<image src="https://user-images.githubusercontent.com/57480698/168495652-e8bfea55-7f46-4009-9de4-ef4c123f98da.jpg" width=200>
-<image src="https://user-images.githubusercontent.com/57480698/168495655-cb06163e-c616-491f-b39e-27d3ba38ddfc.jpg" width=200>
-<image src="https://user-images.githubusercontent.com/57480698/168495658-001fb368-6818-4ce8-982f-a82ba2da8875.jpg" width=200>
-<image src="https://user-images.githubusercontent.com/57480698/168495662-ad7e2358-7ae7-459f-be5e-9e639eb3a2b5.jpg" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344041-11b7b98e-1de3-4d1a-928a-421eff6c815d.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344122-ff7d52cb-c22e-44cd-8070-68ce1b0ae248.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344187-f88b4576-d7f5-494a-ab6e-2796b862aed9.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344256-5498f65b-bdf6-45df-871d-5e0c308f3db1.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344312-58d023d3-f1e3-4e99-a7fe-fd020741b7eb.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344348-c2fca4bc-952f-4d92-ac90-29cde13e2013.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344401-03f413ed-3f4f-4165-b752-869f040b1aaa.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344446-6ee3cd28-d1d4-4750-9645-d0d9175b2975.png" width=200>
+<image src="https://user-images.githubusercontent.com/57480698/169344528-06a20946-e66f-4c7e-960b-24fef95de755.png" width=200>
 </div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
