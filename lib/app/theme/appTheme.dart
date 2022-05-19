@@ -77,11 +77,21 @@ final ThemeData appThemeData = ThemeData(
       shape: MaterialStateProperty.all<RoundedRectangleBorder> (
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
-          side: BorderSide(color: PRIMARY_COLOR)
+          side: const BorderSide(color: PRIMARY_COLOR)
         ),
       ),
       padding: MaterialStateProperty.all<EdgeInsets>(
-            EdgeInsets.fromLTRB(100, 20, 100, 20)),
+            const EdgeInsets.fromLTRB(100, 20, 100, 20)),
     )
   ),
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Text Style
+  |--------------------------------------------------------------------------
+  |
+  */
+
+  fontFamily: "Roboto",
 );

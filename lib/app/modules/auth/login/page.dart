@@ -39,7 +39,6 @@ class LoginPage extends GetView<LoginController> {
                   const SizedBox(height: separatorHeight),
 
                   ElevatedButton(
-                    style: Theme.of(context).elevatedButtonTheme.style,
                     onPressed: controller.login, 
                     child: const Text("Login")
                   ),
@@ -47,7 +46,6 @@ class LoginPage extends GetView<LoginController> {
                   const Spacer(),
 
                   TextButton(
-                    style: Theme.of(context).textButtonTheme.style,
                     onPressed: () { Get.toNamed(Routes.REGISTER); },
                     child: const Text("Don't have an account? Sign up"),
                   ),

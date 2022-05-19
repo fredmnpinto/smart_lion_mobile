@@ -32,7 +32,7 @@ class InputsForm extends StatelessWidget {
               PasswordInputField(inputController: controller.passwordController),
               const Spacer(),
               
-              TextButton(
+              ElevatedButton(
                 onPressed: controller.saveSettings,
                 child: const Text("SAVE SETTINGS"),
               ),

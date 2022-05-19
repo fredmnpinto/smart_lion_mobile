@@ -26,26 +26,30 @@ class SearchBarInputField extends Container {
 
         return null;
       },
+
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none
-                        ),
-                        hintText: 'Search',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18
-                        ),
-                        prefixIcon: Container(
-                          padding: EdgeInsets.all(15),
-                          child: Icon(Icons.search),
-                          width: 18,
-                        )
-                      ),
-                      onChanged: (text) => controller.searchOilBins(text),
+        fillColor: Colors.white,
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none
+        ),
+        hintText: 'Search',
+        hintStyle: const TextStyle(
+          color: Colors.grey,
+          fontSize: 18
+        ),
+
+        // Icon
+        prefixIcon: Container(
+          padding: EdgeInsets.all(15),
+          child: Icon(Icons.search),
+          width: 18,
+        )
+      ),
+      
+      onChanged: (text) => controller.searchOilBins(text),
     );
   }
 }

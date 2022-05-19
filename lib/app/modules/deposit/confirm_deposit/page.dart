@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import '../controller.dart';
 
 class ConfirmDepositPage extends GetView<DepositController> {
@@ -14,31 +15,31 @@ class ConfirmDepositPage extends GetView<DepositController> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          DecoratedBox(
-            decoration: BoxDecoration(
-              border: Border(
-                top : BorderSide(color: Colors.black),
-                left : BorderSide(color: Colors.black),
-                right : BorderSide(color: Colors.black),
-                bottom : BorderSide(color: Colors.black),
-              )
-            ),
-            child: Text(controller.bottleScanned.qrCode),
-          ),
-          DecoratedBox(
-            decoration: BoxDecoration(
-              border: Border(
-                top : BorderSide(color: Colors.black),
-                left : BorderSide(color: Colors.black),
-                right : BorderSide(color: Colors.black),
-                bottom : BorderSide(color: Colors.black),
+          Column(
+            children: [
+              const Text(
+                "Bottle",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
-            ),
-            child: Padding(padding: EdgeInsets.fromLTRB(30, 30, 30, 30), child : Text(controller.oilBinSelected.coordinates.x.toString()+"  "+controller.oilBinSelected.coordinates.y.toString()),
-          )),
-          TextButton(
-            child: Text("CONFIRM"),
-            onPressed: controller.deposit(),
+              QrImage(
+              data: controller.bottleScanned.qrCode,
+              version: QrVersions.auto,
+              size: 200.0,
+            ),]
+          ),
+          Column(
+            children: [
+              const Text(
+                "Oil Bin",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Text(controller.oilBinSelected.address),   
+              Text(controller.oilBinSelected.coordinates.x.toString()+"  "+controller.oilBinSelected.coordinates.y.toString()),
+            ]
+          ),
+          ElevatedButton(
+            child: const Text("CONFIRM"),
+            onPressed: () { controller.deposit(); },
           )
         ],
       )

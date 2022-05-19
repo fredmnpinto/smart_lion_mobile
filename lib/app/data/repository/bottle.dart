@@ -12,7 +12,11 @@ class BottleRepository {
     return apiBottle.getFromId(id);
   }
 
-  add(BottleModel bottle) {
+  void add(BottleModel bottle) {
     apiBottle.add(bottle);
+  }
+
+  Future<List<BottleModel>> getAll() {
+    return apiBottle.getAll();
   }
 }

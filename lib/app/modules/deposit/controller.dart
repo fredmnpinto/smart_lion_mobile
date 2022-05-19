@@ -25,16 +25,20 @@ class DepositController extends GetxController {
 
   final _oilBins = <OilBinModel>[].obs;
 
-  get oilBins => this._oilBins.value;
-  set oilBins(value) => this._oilBins.value = value;
+  get oilBins => _oilBins.value;
+  set oilBins(value) => _oilBins.value = value;
 
   late BottleModel _bottleScanned;
   late OilBinModel _oilBinSelected;
 
-  BottleModel get bottleScanned => this._bottleScanned;
-  OilBinModel get oilBinSelected => this._oilBinSelected;
+  BottleModel get bottleScanned => _bottleScanned;
+  OilBinModel get oilBinSelected => _oilBinSelected;
 
-  searchOilBins(text) async {
+  
+  /// Pesquisa por todos os oleões
+  /// 
+  /// author: Gabriel Fernandes 19/05/2022
+  void searchOilBins(text) async {
     List<OilBinModel> allOilBins = await oilBinRepository.getAll();
 
     List<OilBinModel> oilBinList = <OilBinModel>[];
@@ -48,7 +52,10 @@ class DepositController extends GetxController {
     oilBins = oilBinList;
   }
 
-  selectOilBin(int id) async {
+  /// Seleciona um oleão especifico e vai para a pagina de confirmação de deposito
+  /// 
+  /// author: Gabriel Fernandes 19/05/2022
+  void selectOilBin(int id) async {
     OilBinModel oilBin = await oilBinRepository.getFromId(id);
 
     _oilBinSelected = oilBin;
@@ -56,27 +63,61 @@ class DepositController extends GetxController {
     Get.toNamed(Routes.CONFIRMDEPOSIT);
   }
 
-  deposit() {
-    DepositModel deposit = DepositModel(bottleId: 1, oilBinId: _oilBinSelected.id!);
-    
-    bottleRepository.add(_bottleScanned);
-    depositRepository.add(deposit);
+  /// Cria um deposito na base de dados
+  /// para o deposito escolhido e com a garrafa registada pelo
+  /// scanner
+  /// 
+  /// author: Gabriel Fernandes 19/05/2022
+  void deposit() {
+    // Primeiro insere a garrafa e retorna o seu id
+    insertBottle().then((bottleId) => {
+      //Depois e inserido o novo deposito
+      depositRepository.add(DepositModel(bottleId: bottleId, oilBinId: _oilBinSelected.id ?? -1))
+    });
+
+    Get.offAndToNamed(Routes.USERPROFILE);
   }
 
+  /// Insere a bottle scaneada na base de dados
+  /// e retorna o seu id
+  /// 
+  /// Se retornar -1 é porque ou não encontrou ou o id e null
+  /// 
+  /// author: Gabriel Fernandes 19/05/2022
+  Future<int> insertBottle() async {
+    bottleRepository.add(_bottleScanned);
+
+    List<BottleModel> bottleList = await bottleRepository.getAll();
+
+    for(BottleModel bottle in bottleList) {
+      if(bottle.qrCode == _bottleScanned.qrCode) {
+        return bottle.id ?? -1;
+      }
+    }
+
+    return -1;
+  }
+
+  /// Scaneia um codigo QR
+  /// e regist na base de dados a garrafa
+  /// 
+  /// author: Gabriel Fernandes 19/05/2022
   Future<void> scan() async {
     ScanResult codeSanner = await BarcodeScanner.scan(
-      options: ScanOptions(
-      useCamera: -1, // -1 para utilizar a camera de tras, e 1 para usar a camera da frente.
+      options: const ScanOptions(
+        useCamera: -1, // -1 para utilizar a camera de tras, e 1 para usar a camera da frente.
       ),
     );
 
-    BottleModel bottle = BottleModel(
-      firebaseUid: FirebaseAuth.instance.currentUser!.uid, 
-      qrCode: codeSanner.rawContent, 
-    );
+    if(codeSanner.rawContent != "") { // Se não leu nada, não faz nada
+      BottleModel bottle = BottleModel(
+        firebaseUid: FirebaseAuth.instance.currentUser!.uid, 
+        qrCode: codeSanner.rawContent, 
+      );
 
-    _bottleScanned = bottle;
+      _bottleScanned = bottle;
 
-    Get.toNamed(Routes.SEARCHLOCATIONS);
+      Get.toNamed(Routes.SEARCHLOCATIONS);
+    }
   }
 }
