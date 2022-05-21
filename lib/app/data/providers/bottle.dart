@@ -32,15 +32,15 @@ class BottleProvider {
 
   /// Faz um pedido HTTP GET para o servidor
   /// Caso o servidor encontre, retorna a Bottle com o id correspondente 
-  Future<BottleModel> getFromId(id) async {
+  Future<BottleModel> getFromId(int id) async {
     final response = await httpClient.get(
-      Uri.parse(DBHelper.API_URL+'/bottle/'+id)
+      Uri.parse(DBHelper.API_URL+'/bottle/'+id.toString())
     );
 
     if(response.statusCode == 200) {
       // If the server did return a 200 OK response,
       // then parse the JSON.
-      return BottleModel.fromJson(jsonDecode(response.body));
+      return BottleModel.fromJson(jsonDecode(response.body)["data"]);
     }else{
       // If the server did not return a 200 OK response,
       // then throw an exception.
@@ -50,21 +50,37 @@ class BottleProvider {
 
   /// Faz um pedido HTTP POST para o servidor
   /// Depois, o servidor tenta inserir a bottle na base de dados
-  void add(BottleModel bottle) async {
-    httpClient.post(
+  /// 
+  /// Retorna o ID da bottle
+  /// 
+  /// author: Gabriel Fernandes 21/05/2022
+  Future<int?> add(BottleModel bottle) async {
+    final response = await httpClient.post(
       Uri.parse(DBHelper.API_URL+'/bottle/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(bottle.toJson())
     );
+
+    if(response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      return BottleModel.fromJson(jsonDecode(response.body)["data"]).id; 
+    }else{
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load Bottle');
+    }
   }
 
   void edit(obj) async {
     /// @TODO
   }
 
-  void delete(obj) async {
-    /// @TODO
+  void delete(int id) async {
+    httpClient.delete(
+      Uri.parse(DBHelper.API_URL+'/bottle/'+id.toString()),
+    );
   }
 }

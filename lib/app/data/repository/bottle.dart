@@ -8,15 +8,19 @@ class BottleRepository {
 
   BottleRepository({required this.apiBottle}) : assert(apiBottle != null);
 
-  getFromId(int id) {
+  Future<BottleModel> getFromId(int id) {
     return apiBottle.getFromId(id);
   }
 
-  void add(BottleModel bottle) {
-    apiBottle.add(bottle);
+  Future<int?> add(BottleModel bottle) async {
+    return await apiBottle.add(bottle);
   }
 
   Future<List<BottleModel>> getAll() {
     return apiBottle.getAll();
+  }
+
+  void delete(int id) {
+    apiBottle.delete(id);
   }
 }
