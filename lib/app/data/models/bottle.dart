@@ -3,7 +3,7 @@ class BottleModel {
   final String firebaseUid;
   final String qrCode;
 
-  static const idAttrName = "id";
+  static const idAttrName = "ID";
   static const firebaseUidAttrName = 'firebase_uid';
   static const qrCodeAttrName = "qr_code";
 
@@ -11,9 +11,9 @@ class BottleModel {
     this.id,
     required this.firebaseUid,
     required this.qrCode,
-  }) : assert(id == null || id > 0);
+  });
 
-  static fromJson(Map<String, dynamic> jsonData) async => BottleModel(
+  factory BottleModel.fromJson(Map<String, dynamic> jsonData) => BottleModel(
         id: jsonData[idAttrName],
         firebaseUid: jsonData[firebaseUidAttrName].toString(),
         qrCode: jsonData[qrCodeAttrName],

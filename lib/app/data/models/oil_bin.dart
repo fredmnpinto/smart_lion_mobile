@@ -5,7 +5,7 @@ class OilBinModel {
   late final _Coordinates coordinates;
   final String address;
 
-  static const idAttrName = "id";
+  static const idAttrName = "ID";
   static const coordinateXAttrName = "coordinate_x";
   static const coordinateYAttrName = "coordinate_y";
   static const addressAttrName = "address";
@@ -22,8 +22,8 @@ class OilBinModel {
 
   factory OilBinModel.fromJson(Map<String, dynamic> jsonData) => OilBinModel(
         id: jsonData[idAttrName],
-        x: jsonData[coordinateXAttrName]!,
-        y: jsonData[coordinateYAttrName]!,
+        x: jsonData[coordinateXAttrName],
+        y: jsonData[coordinateYAttrName],
         address: jsonData[addressAttrName],
       );
 

@@ -9,8 +9,25 @@ class BottleProvider {
   BottleProvider({required this.httpClient});
 
   Future<List<BottleModel>> getAll() async {
-    /// @TODO
-    return [];
+    final response = await httpClient.get(
+      Uri.parse(DBHelper.API_URL+'/bottle/')
+    );
+
+    if(response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      Map<String, dynamic>parsedJson = jsonDecode(response.body); 
+
+      Iterable parsedListJson = parsedJson["data"];
+
+      List<BottleModel> bottleList = List<BottleModel>.from(parsedListJson.map((model)=> BottleModel.fromJson(model)));
+      
+      return bottleList;
+    }else{
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load Bottle');
+    }
   }
 
   /// Faz um pedido HTTP GET para o servidor
@@ -35,7 +52,7 @@ class BottleProvider {
   /// Depois, o servidor tenta inserir a bottle na base de dados
   void add(BottleModel bottle) async {
     httpClient.post(
-      Uri.parse(DBHelper.API_URL+'/bottle'),
+      Uri.parse(DBHelper.API_URL+'/bottle/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },

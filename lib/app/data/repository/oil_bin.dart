@@ -9,10 +9,14 @@ class OilBinRepository {
   OilBinRepository({required this.api});
 
   getFromId(int id) {
-    return api.getId(id);
+    return api.getFromId(id);
   }
 
-  add(OilBinModel oilBin) {
+  void add(OilBinModel oilBin) {
     api.add(oilBin);
+  }
+
+  Future<List<OilBinModel>> getAll() {
+    return api.getAll();
   }
 }
