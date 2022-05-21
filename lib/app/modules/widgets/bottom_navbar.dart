@@ -15,21 +15,21 @@ class BottomNavBar extends Container {
       items: [
         BottomNavigationBarItem(
           icon: IconButton (
-            onPressed: () { Get.toNamed(Routes.USERPROFILE); }, 
+            onPressed: () { Get.offAndToNamed(Routes.USERPROFILE); }, 
             icon: const Icon(Icons.person),
           ),
           label: "Profile"
         ),
         BottomNavigationBarItem(
           icon: IconButton (
-            onPressed: () { Get.toNamed(Routes.MAP); }, 
+            onPressed: () { Get.offAndToNamed(Routes.MAP); }, 
             icon: const Icon(Icons.map),
           ),
           label: "Map"
         ),
         BottomNavigationBarItem(
           icon: IconButton (
-            onPressed: () { Get.toNamed(Routes.QRSCANNER); }, 
+            onPressed: () { Get.offAndToNamed(Routes.QRSCANNER); }, 
             icon: const Icon(Icons.qr_code),
           ),
           label: "Deposit"

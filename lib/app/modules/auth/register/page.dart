@@ -52,7 +52,7 @@ class RegisterPage extends GetView<RegisterController> {
 
                   TextButton(
                     style: Theme.of(context).textButtonTheme.style,
-                    onPressed: () { Get.back(); },
+                    onPressed: () { Get.offAndToNamed(Routes.LOGIN); },
                     child: const Text("Already have an account? Sign in"),
                   ),
                 ],

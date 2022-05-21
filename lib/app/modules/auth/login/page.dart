@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
+import 'package:smart_lion_mobile/app/modules/auth/login/widgets/grow_animation.dart';
 import 'package:smart_lion_mobile/app/modules/widgets/email_input.dart';
+import 'package:smart_lion_mobile/app/modules/auth/login/widgets/fade_animation.dart';
 import 'package:smart_lion_mobile/app/modules/widgets/password_input.dart';
 import 'package:smart_lion_mobile/app/theme/appTheme.dart';
 
@@ -22,15 +25,18 @@ class LoginPage extends GetView<LoginController> {
           child: Padding( 
             padding: const EdgeInsets.all(20.0),
             child: Center(
-              child: Column(
+              child: FadeAnimation(widget_child: Column(
                 children: [
                   const Spacer(flex: 1),
                   const SizedBox(height: separatorHeight),
-                  // Logo
-                  Image.asset(
-                    "assets/images/smart-lion.jpg",
-                    scale: 3,
+                  // Logo 
+                  GrowAnimation(widget_child: 
+                    Image.asset(
+                      "assets/images/smart-lion.jpg",
+                      scale: 3,
+                    ),
                   ),
+              
                   // Inputs
                   const SizedBox(height: separatorHeight),
                   EmailInputField(inputController: controller.emailController),
@@ -46,11 +52,12 @@ class LoginPage extends GetView<LoginController> {
                   const Spacer(),
 
                   TextButton(
-                    onPressed: () { Get.toNamed(Routes.REGISTER); },
+                    onPressed: () { Get.offAndToNamed(Routes.REGISTER); },
                     child: const Text("Don't have an account? Sign up"),
                   ),
+                  
                 ],
-              ),
+              ),),
             ),
           ),
         ),
