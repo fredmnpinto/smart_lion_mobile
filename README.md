@@ -12,6 +12,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+[![License][license-shield]][license-url]
 
 
 
@@ -112,3 +113,5 @@ samples, guidance on mobile development, and a full API reference.
 [stars-url]: https://github.com/fredmnpinto/smart_lion_mobile/stargazers
 [issues-shield]: https://img.shields.io/github/issues/fredmnpinto/smart_lion_mobile?style=for-the-badge
 [issues-url]: https://github.com/fredmnpinto/smart_lion_mobile/issues
+[license-shield]: https://img.shields.io/github/license/fredmnpinto/smart_lion_mobile?style=for-the-badge
+[license-url]: https://github.com/fredmnpinto/smart_lion_mobile/blob/master/LICENSE
