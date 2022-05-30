@@ -14,26 +14,32 @@ class MapPageController extends GetxController {
 
   final _userLocation = LatLng(0, 0).obs;
   final _oilBins = <OilBinModel>[].obs;
+  final _isLoading = false.obs;
 
-  get userLocation => _userLocation.value;
+  LatLng get userLocation => _userLocation.value;
+
   set userLocation(value) => _userLocation.value = value;
-  get oilBins => _oilBins.value;
+
+  List<OilBinModel> get oilBins => _oilBins.value;
+
   set oilBins(value) => _oilBins.value = value;
 
+  bool get isLoading => _isLoading.value;
+
   /// Atualiza a posição atual do dispositivo
-  /// 
-  /// author: Gabriel Fernandes 19/05/2022
-  void getCurrentLocation() {
-    _determinePosition().then((Position position) { 
-      userLocation = LatLng(position.latitude, position.longitude); 
+  void getCurrentLocation() async {
+    _isLoading.value = true;
+    _determinePosition().then((Position position) {
+      userLocation = LatLng(position.latitude, position.longitude);
+      _isLoading.value = false;
     });
   }
 
   /// Vai buscar todos os oleões a API
-  /// 
+  ///
   /// Essa lista sera utilizada para popular o mapa
   /// com marcadores nas suas coordenadas
-  /// 
+  ///
   /// author: Gabriel Fernandes 19/05/2022
   void getAllOilBins() {
     repository.getAll().then((List<OilBinModel> list) {
@@ -41,33 +47,46 @@ class MapPageController extends GetxController {
     });
   }
 
-
   /// Retorna uma lista com Marcadores que representam os
   /// varios oleões da lista nas suas respetivas coordenadas
-  /// 
+  ///
   /// author: Gabriel Fernandes 19/05/2022
   List<Marker> getAllMarkers() {
     List<Marker> markerList = <Marker>[];
 
-    for(OilBinModel oilBin in oilBins) {
-      Marker marker = _createMarker(oilBin);
+    for (OilBinModel oilBin in oilBins) {
+      Marker marker = _createMarkerFromOilBin(oilBin);
 
       markerList.add(marker);
     }
-    
+
     return markerList;
+  }
+
+  Marker getUserMarker() {
+    return _createMarker(
+      userLocation,
+      const Icon(Icons.location_history_rounded, color: Colors.black, size: 45.0,),
+    );
   }
 
   /// Cria um marcador com os dados
   /// do oleão
-  /// 
+  ///
   /// author: Gabriel Fernandes 19/05/2022
-  Marker _createMarker(OilBinModel oilBin) {
+  Marker _createMarker(LatLng location, Widget marking) {
     return Marker(
       width: 80.0,
       height: 80.0,
-      point: LatLng(oilBin.coordinates.x, oilBin.coordinates.y),
-      builder: (ctx) => Image.asset(
+      point: LatLng(location.latitude, location.longitude),
+      builder: (ctx) => marking,
+    );
+  }
+
+  Marker _createMarkerFromOilBin(OilBinModel oilBin) {
+    return _createMarker(
+      LatLng(oilBin.coordinates.x, oilBin.coordinates.y),
+      Image.asset(
         "assets/images/oau_marker.png",
         scale: 3,
       ),
@@ -86,7 +105,7 @@ class MapPageController extends GetxController {
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       // Location services are not enabled don't continue
-      // accessing the position and request users of the 
+      // accessing the position and request users of the
       // App to enable the location services.
       return Future.error('Location services are disabled.');
     }
@@ -97,21 +116,22 @@ class MapPageController extends GetxController {
       if (permission == LocationPermission.denied) {
         // Permissions are denied, next time you could try
         // requesting permissions again (this is also where
-        // Android's shouldShowRequestPermissionRationale 
+        // Android's shouldShowRequestPermissionRationale
         // returned true. According to Android guidelines
         // your App should show an explanatory UI now.
         return Future.error('Location permissions are denied');
       }
     }
-    
+
     if (permission == LocationPermission.deniedForever) {
-      // Permissions are denied forever, handle appropriately. 
+      // Permissions are denied forever, handle appropriately.
       return Future.error(
-        'Location permissions are permanently denied, we cannot request permissions.');
-    } 
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
 
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
-    return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+    return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
   }
 }

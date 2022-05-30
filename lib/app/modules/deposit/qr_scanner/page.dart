@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_routes.dart';
+import '../../widgets/bottom_navbar.dart';
 import '../controller.dart';
 
 class QRScannerPage extends GetView<DepositController> {
@@ -33,8 +34,8 @@ class QRScannerPage extends GetView<DepositController> {
             ),
           )
         ]
-      )
+      ),
+      bottomNavigationBar: BottomNavBar(currentIdx: 2),
     );
   }
-
 }

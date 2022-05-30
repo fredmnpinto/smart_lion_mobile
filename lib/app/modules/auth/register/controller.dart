@@ -26,7 +26,10 @@ class RegisterController extends GetxController {
   /// displayName TextEditingController to get the
   /// input.
   Future<void> register() async {
+    print("Trying to register");
+
     if (!registerFormKey.currentState!.validate()) {
+      print("Register form invalid!!!");
       return;
     }
 
@@ -40,6 +43,7 @@ class RegisterController extends GetxController {
       UserModel user = new UserModel(userTypeId: 1,  firebaseUid: FirebaseAuth.instance.currentUser!.uid);
       repository.apiUser.add(user);
     } on FirebaseAuthException catch (e) {
+      print("Error during registration: " + e.message!);
       Get.snackbar("Error during registration", e.message!);
     }
   }
